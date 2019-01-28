@@ -38,7 +38,7 @@ class HeaderMovie extends Component {
                                 <Link to="/managecategory"><NavLink>Manage Catagories</NavLink></Link>
                             </NavItem>
                             <NavItem>
-                                <Link to="/connectmovcat"><NavLink>Connect Movies and category</NavLink></Link>
+                                <Link to="/connectmovcat"><NavLink>Connect Movies and Category</NavLink></Link>
                             </NavItem>
                         </Nav>
                     </Collapse>

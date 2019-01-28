@@ -7,7 +7,7 @@ class ManageCategory extends Component {
         this.getCategoryList();
     }
 
-    getMovieList = () => {
+    getCategoryList = () => {
         axios.get('http://localhost:1996/categorylist')
             .then((res) => {
                 this.setState({ listCategory: res.data })
@@ -58,7 +58,7 @@ class ManageCategory extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-12 text-center">
-                        <h2 className="section-heading text-uppercase">Movie List</h2>
+                        <h2 className="section-heading text-uppercase">Category List</h2>
                     </div>
                 </div>
                 <center>

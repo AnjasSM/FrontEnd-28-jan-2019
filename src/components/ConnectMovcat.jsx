@@ -17,10 +17,11 @@ class ConnectMovcat extends Component {
     }
 
     onBtnAddClick = () => {
-        var nama = this.refs.addNama.value;
+        var idMovie = this.refs.addMoviecat.value;
+        var idCategory = this.refs.addCategorymov.value;
 
         axios.post('http://localhost:1996/addmovcat', {
-                nama
+                idMovie, idCategory
             }).then((res) => {
                 this.getMovcatList();
             }).catch((err) => {
@@ -28,7 +29,25 @@ class ConnectMovcat extends Component {
             })
     }
 
-    onBtnDeleteClick = (idMovie,idCategory) => {
+
+    getNamaMovie = () => {
+        var nama_Movie = this.state.listMovCat.map(({ namaMovie }) => {
+            return (
+                <option>{namaMovie}</option>
+            )
+        })
+        return nama_Movie
+    }
+    getNamaCategory = () => {
+        var nama_category = this.state.listMovCat.map(({ namaCat }) => {
+            return (
+                <option>{namaCat}</option>
+            )
+        })
+        return nama_category
+    }
+
+    onBtnDeleteClick = () => {
         if(window.confirm('Are u sure to delete?')) {
             axios.delete('http://localhost:1996/deletemovcat')
                 .then((res) => {
@@ -75,11 +94,11 @@ class ConnectMovcat extends Component {
                             <tr>
                                 <td>
                                     <select ref="addMoviecat">
-                                        <option>{this.FUCTION}</option>
+                                        {this.getNamaMovie()}
                                     </select></td>
                                 <td>
                                     <select ref="addCategoryMov">
-                                        <option>{this.FUCTION}</option>
+                                        {this.getNamaCategory()}
                                     </select>
                                 </td>
                                 <td>
@@ -96,4 +115,3 @@ class ConnectMovcat extends Component {
 }
 
 export default ConnectMovcat;
-
